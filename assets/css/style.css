@@ -3,19 +3,127 @@
 	UCN MMD 2019 
 */
 
+:root {
+	--element-padding: 2.5vw;
+	--element-padding-lg: 20px;
+	--layout-padding: 6vw;
+	--layout-padding-lg: 25px;
+	--shadow: 3px 3px 7px rgba(0,0,0,.5);
+	--shadow-active: 1px 1px 5px rgba(0,0,0,.5);
+}
+
 * {
 	box-sizing: border-box;
 }
 
+.clearfix {
+	overflow: auto;
+}
+
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
 body {
 	font-family: sans-serif;
-	padding: 5vw;
+	padding: 0;
 	font-size: 4vw;
 	line-height: 1.4;
+	overflow-y: scroll;
+}
+
+main {
+	margin: 0 auto;
+	max-width: 500px;
+	padding: var(--layout-padding);
+	padding-top: calc(var(--element-padding) / 1.5);
+	background-color: rgba(0,0,0,.1);
+}
+
+main > div {
+	margin-bottom: var(--element-padding);
+}
+
+main > div:last-child {
+	margin-bottom: 0;
+}
+
+h1 {
+	margin: 0;
+}
+
+#list a {
+	display: block;
+	padding: var(--element-padding);
+	background-color: rgba(0,0,0,.1);
+	color: #000;
+	text-decoration: none;
+	margin: 0 0 var(--element-padding) 0;
+}
+
+.btn {
+	background-color: #0be881;
+	border: none;
+	cursor: pointer;
+	user-select: none;
+	border-radius:10px;
+	box-shadow: var(--shadow);
+	margin: 0;
+}
+
+.btn:active {
+	box-shadow: var(--shadow-active);
+}
+
+.btnDelete {
+	background-color: #ff3f34;
+}
+
+input[type="text"]{
+	border: 2px solid #05c46b;
+}
+
+#editTool input, .btn {
+	display: block;
+	width: 100%;
+	padding: var(--element-padding);
+}
+
+#editTool input {
+	margin-bottom: var(--element-padding);
 }
 
 @media (min-width: 640px) {
 	body {
-		font-size: 1rem;
+		font-size: 1.5rem;
+		padding: var(--layout-padding-lg);
+	}
+
+	main {
+		padding: var(--layout-padding-lg);
+		padding-top: calc(var(--element-padding-lg) / 1.25);
+	}
+
+	main > div {
+		margin-bottom: var(--element-padding-lg);
+	}
+
+	main > div:last-child {
+		margin-bottom: 0;
+	}
+
+	#editTool input, .btn {
+		padding: var(--element-padding-lg);
+	}
+
+	#editTool input {
+		margin-bottom: var(--element-padding-lg);
+	}
+
+	#list a {
+		padding: var(--element-padding-lg);
+		margin: 0 0 var(--element-padding-lg) 0;
 	}
 }
