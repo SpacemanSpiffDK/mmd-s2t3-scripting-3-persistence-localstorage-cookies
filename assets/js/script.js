@@ -4,11 +4,19 @@
 // ========================================
 // USING 
 // ========================================
+// to get and set values in session storage 
+//
 // localStorage.getItem()
 // localStorage.setItem()
 // localStorage.removeItem();
 // 
+// ========================================
 // to get and set values in local storage 
+// 
+// sessionStorage.getItem()
+// sessionStorage.setItem()
+// sessionStorage.removeItem();
+// 
 // ========================================
 
 let listArray = []; // setup listArray as a global variable, we need this everywhere!
@@ -82,6 +90,8 @@ let js = {
                 js.items.setHtml();
                 // clear input
                 js.dom.value("#editItem", "");
+                // set focus
+                js.ui.focus("#editItem");
             }
         }
     },
@@ -142,22 +152,22 @@ let js = {
     },
     ui: {
         init: function () {
-            // set eventlistener on input
+            // set event listener on input
             let elm = document.querySelector("#editItem");
             elm.addEventListener("keyup", function (event) {
                 if (event.keyCode == 13) {
-                    js.item.newItem(elm.value);
+                    js.item.newItem(this.value);
                 }
             });
 
-            // set eventlistener on submit button
+            // set event listener on submit button
             document.querySelector("#submitBtn").addEventListener("click", function () {
                 let elm = document.querySelector("#editItem");
                 js.item.newItem(elm.value);
             });
 
 
-            // set eventlistener on delete button
+            // set event listener on delete button
             document.querySelector("#deleteBtn").addEventListener("click", function () {
                 js.items.deleteAll();
             });
