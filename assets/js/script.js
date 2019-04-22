@@ -79,16 +79,18 @@ let js = {
     },
     items: {
         save: function () {
-            // save listArray to localstorage as a JSON string
+            // save listArray to storage as a JSON string
             // builds a string that looks like this:
             // {"items":[{"name": "name of item 1"},{"name": "Name of item 2"}]}
-            // Save the string to local storage "todoList" 
+            // Must be a string since that is what local storage, session storage and cookies will accept
+            // Save the string to storage "todoList" 
             console.log("js.items.save() called");
         },
         load: function () {
             // Load from storage here
-            // Put data into the listArray
-            // Draw new list
+            // convert from string to object
+            // loop the object and put data into the listArray
+            // Draw new list in HTML
             console.log("js.items.load() called");
         },
         setHtml: function () {
