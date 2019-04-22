@@ -113,6 +113,10 @@ let js = {
             localStorage.setItem("todoList", dataString);
         },
         load: function () {
+            // Load from storage here
+            // convert from string to object
+            // loop the object and put data into the listArray
+            // Draw new list in HTML
             if (localStorage.getItem("todoList") != undefined) {
                 let dataString = localStorage.getItem("todoList"); // get items from localstorage (string)
                 dataJSON = JSON.parse(dataString); // convert string to JSON
