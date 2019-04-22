@@ -97,9 +97,11 @@ let js = {
     },
     items: {
         save: function () {
-            // save listArray to localstorage as a JSON string
+            // save listArray to storage as a JSON string
             // builds a string that looks like this:
             // {"items":[{"name": "name of item 1"},{"name": "Name of item 2"}]}
+            // Must be a string since that is what local storage, session storage and cookies will accept
+            // Save the string to storage "todoList" 
             let dataString = '{"items":[';
             for (let i = 0; i < listArray.length; i++) {
                 dataString += `{ "name": "${listArray[i]}" }`;
