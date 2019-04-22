@@ -1,24 +1,6 @@
 // JS by Dan Høegh
 // UCN MMD 2019
 
-// ========================================
-// USING 
-// ========================================
-// to get and set values in session storage 
-//
-// localStorage.getItem()
-// localStorage.setItem()
-// localStorage.removeItem();
-// 
-// ========================================
-// to get and set values in local storage 
-// 
-// sessionStorage.getItem()
-// sessionStorage.setItem()
-// sessionStorage.removeItem();
-// 
-// ========================================
-
 let listArray = []; // setup listArray as a global variable, we need this everywhere!
 
 let js = {
@@ -100,28 +82,14 @@ let js = {
             // save listArray to localstorage as a JSON string
             // builds a string that looks like this:
             // {"items":[{"name": "name of item 1"},{"name": "Name of item 2"}]}
-            let dataString = '{"items":[';
-            for (let i = 0; i < listArray.length; i++) {
-                dataString += `{ "name": "${listArray[i]}" }`;
-                if (i != listArray.length - 1) {
-                    dataString += ","; // only put a comma if we're NOT at the last item
-                }
-            }
-            dataString += "]}";
-            localStorage.setItem("todoList", dataString);
+            // Save the string to local storage "todoList" 
+            console.log("js.items.save() called");
         },
         load: function () {
-            if (localStorage.getItem("todoList") != undefined) {
-                let dataString = localStorage.getItem("todoList"); // get items from localstorage (string)
-                dataJSON = JSON.parse(dataString); // convert string to JSON
-
-                listArray = []; // Empty the listArray
-                let list = dataJSON.items; // new var with the list of items from the JSON object
-                for (let i = 0; i < list.length; i++) { // loop the items
-                    listArray.push(list[i].name); // add (push) each item to listArray
-                }
-                js.items.setHtml(); // draw all items in the listArray as todo list items in the HTML
-            }
+            // Load from storage here
+            // Put data into the listArray
+            // Draw new list
+            console.log("js.items.load() called");
         },
         setHtml: function () {
             // draw all items from arrayList as items on the todo list in the HTML
