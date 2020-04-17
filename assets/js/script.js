@@ -189,6 +189,4 @@ let js = {
     }
 }
 
-window.onload = function () {
-    js.ui.init();
-}
+js.ui.init();
